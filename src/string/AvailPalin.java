@@ -22,7 +22,7 @@ public class AvailPalin {
         System.out.println(solution(str));
     }
 
-    public static String solution(String s) {
+        public static String solution(String s) {
         String answer = "NO";
         //[^A-Z] = 대문자 A-Z가 아닌것들
         s = s.toUpperCase().replaceAll("[^A-Z]", "");
