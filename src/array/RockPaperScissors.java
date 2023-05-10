@@ -30,7 +30,7 @@ public class RockPaperScissors {
         for (char x : solution(n, a, b).toCharArray()) System.out.println(x);
 
     }
-
+//12345678910
     public static String solution(int n, int[] a, int[] b) {
 
         String answer = "";
