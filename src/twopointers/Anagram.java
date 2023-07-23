@@ -35,9 +35,9 @@ public class Anagram {
 
     public static void main(String[] args) {
         Scanner kb = new Scanner(System.in);
-        int n = kb.nextInt();
-        int k = kb.nextInt();
-        System.out.println();
+        String n = kb.next();
+        String k = kb.next();
+        System.out.println(solution(n, k));
     }
 
 }
