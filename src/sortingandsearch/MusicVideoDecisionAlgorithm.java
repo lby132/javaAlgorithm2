@@ -3,7 +3,7 @@ package sortingandsearch;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class DecisionAlgorithm {
+public class MusicVideoDecisionAlgorithm {
 
     public static int count(int[] arr, int capacity) {
         int cnt = 1, sum = 0;
