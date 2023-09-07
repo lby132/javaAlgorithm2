@@ -54,7 +54,7 @@ class HashTable {
         int index = convertToIndex(hashcode);
         LinkedList<Node> list = data[index];
         if (list == null) {
-            list = new LinkedList<Node>();
+            list = new LinkedList<>();
             data[index] = list;
         }
         Node node = searchKey(list, key);
