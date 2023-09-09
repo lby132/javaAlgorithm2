@@ -15,23 +15,23 @@ class Point {
 
 public class ShortestDistanceMaze {
 
-    static int[] dx = {-1, 0, 1, 0};
-    static int[] dy = {0, 1, 0, -1};
+    static int[] dx={-1, 0, 1, 0};
+    static int[] dy={0, 1, 0, -1};
     static int[][] board, dis;
 
-    private static void BFS(int x, int y) {
-        Queue<Point> Q = new LinkedList<>();
+    public void BFS(int x, int y){
+        Queue<Point> Q=new LinkedList<>();
         Q.offer(new Point(x, y));
-        board[x][y] = 1;
-        while (!Q.isEmpty()) {
-            Point tmp = Q.poll();
-            for (int i = 0; i < 4; i++) {
-                int nx = tmp.x = dx[i];
-                int ny = tmp.y = dy[i];
-                if (nx >= 1 && nx <= 7 && ny >= 1 && ny <= 7 && board[nx][ny] == 0) {
-                    board[nx][ny] = 1;
+        board[x][y]=1;
+        while(!Q.isEmpty()){
+            Point tmp=Q.poll();
+            for(int i=0; i<4; i++){
+                int nx=tmp.x+dx[i];
+                int ny=tmp.y+dy[i];
+                if(nx>=1 && nx<=7 && ny>=1 && ny<=7 && board[nx][ny]==0){
+                    board[nx][ny]=1;
                     Q.offer(new Point(nx, ny));
-                    dis[nx][ny] = dis[tmp.x][tmp.y] + 1;
+                    dis[nx][ny]=dis[tmp.x][tmp.y]+1;
                 }
             }
         }
