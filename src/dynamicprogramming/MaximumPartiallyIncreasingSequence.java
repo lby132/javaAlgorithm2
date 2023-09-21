@@ -10,19 +10,17 @@ public class MaximumPartiallyIncreasingSequence {
         int answer = 0;
         dy = new int[arr.length];
         dy[0] = 1;
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 1; i < arr.length; i++) {
             int max = 0;
-            for (int j = i-1; j >= 0; j--) {
-                if (arr[j] < arr[i] && dy[i] > max) {
-                    max = dy[j];
-                }
+            for (int j = i - 1; j >= 0; j--) {
+                if (arr[j] < arr[i] && dy[j] > max) max = dy[j];
             }
             dy[i] = max + 1;
             answer = Math.max(answer, dy[i]);
         }
         return answer;
-
     }
+
 
     public static void main(String[] args) {
         MaximumPartiallyIncreasingSequence T = new MaximumPartiallyIncreasingSequence();
