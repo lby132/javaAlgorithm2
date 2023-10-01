@@ -13,7 +13,7 @@ public class Ex {
         Arrays.sort(strArr, String.CASE_INSENSITIVE_ORDER); //대소문자 구분안하고 정렬
         System.out.println("strArr = " + Arrays.toString(strArr));
 
-        Arrays.sort(strArr, new Descending());
+        Arrays.sort(strArr, new Descending()); // 정렬 기준 생성
         System.out.println("strArr = " + Arrays.toString(strArr));
 
     }
