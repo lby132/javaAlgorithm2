@@ -17,7 +17,7 @@ public class BigNum {
         for (int i = 1; i < n; i++) {
             if (arr[i] > arr[i - 1]) answer.add(arr[i]);
         }
-        System.out.println("answer = " + answer);
+
         return answer;
     }
 
