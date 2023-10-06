@@ -18,6 +18,8 @@ public class BigNum {
             if (arr[i] > arr[i - 1]) answer.add(arr[i]);
         }
 
+        System.out.println("answer = " + answer);
+
         return answer;
     }
 
