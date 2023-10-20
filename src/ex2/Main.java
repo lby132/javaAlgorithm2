@@ -8,42 +8,41 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        String s = sc.next();
-        char c = sc.next().charAt(0);
-
-        for (int x : solution(s, c)) {
-            System.out.print(x + " ");
+        int i = sc.nextInt();
+        int[][] arr = new int[i][i];
+        for (int j = 0; j < i; j++) {
+            for (int k = 0; k < i; k++) {
+                arr[j][k] = sc.nextInt();
+            }
         }
 
-
+        System.out.println(solution(i, arr));
     }
 
-    private static int[] solution(String s, char e) {
+    private static int solution(int n, int[][] arr) {
 
-        int[] answer = new int[s.length()];
-
-        int p = 1000;
-
-        for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) == e) {
-                p = 0;
-                answer[i] = p;
-            } else {
-                p++;
-                answer[i] = p;
+        int answer = Integer.MIN_VALUE;
+        int sum1, sum2;
+        for (int i = 0; i < n; i++) {
+            sum1 = sum2 = 0;
+            for (int j = 0; j < n; j++) {
+                sum1 += arr[i][j];
+                sum2 += arr[j][i];
             }
+            answer = Math.max(answer, sum1);
+            answer = Math.max(answer, sum2);
         }
-        p = 1000;
 
-        for (int i = s.length() - 1; i >= 0; i--) {
-            if (s.charAt(i) == e) {
-                p = 0;
-            } else {
-                p++;
-                answer[i] = Math.min(answer[i], p);
-            }
+        sum1 = sum2 = 0;
+        for (int i = 0; i < n; i++) {
+            sum1 += arr[i][i];
+            sum2 += arr[i][n - i - 1];
         }
+        answer = Math.max(answer, sum1);
+        answer = Math.max(answer, sum2);
+
         return answer;
-
     }
 }
+
+
