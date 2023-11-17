@@ -20,13 +20,13 @@ public class EmergencyRoom {
         int answer = 0;
         Queue<Person> Q = new LinkedList<>();
         for (int i = 0; i < n; i++) {
-            Q.add(new Person(i, arr[i]));
+            Q.offer(new Person(i, arr[i]));
         }
         while (!Q.isEmpty()) {
             Person tmp = Q.poll();
             for (Person x : Q) {
                 if (x.priority > tmp.priority) {
-                    Q.add(tmp);
+                    Q.offer(tmp);
                     tmp = null;
                     break;
                 }

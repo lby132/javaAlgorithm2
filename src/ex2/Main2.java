@@ -1,51 +1,40 @@
 package ex2;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         int i = sc.nextInt();
-        int[] arr = new int[i];
+        int[] arr1 = new int[i];
         for (int j = 0; j < i; j++) {
-            arr[j] = sc.nextInt();
+            arr1[j] = sc.nextInt();
+        }
+        int m = sc.nextInt();
+        int[] b = new int[m];
+        for (int j = 0; j < m; j++) {
+            b[j] = sc.nextInt();
         }
 
-
-        for (int x : solution(i, arr)) {
+        for (int x : solution(i, m, arr1, b)) {
             System.out.print(x + " ");
         }
     }
 
-    public static boolean isPrime(int n) {
-        if (n == 1) return false;
-        for (int i = 2; i < n; i++) {
-            if (n % i == 0) return false;
-        }
 
-        return true;
-    }
-
-    public static ArrayList<Integer> solution(int n, int[] arr) {
-
+    public static ArrayList<Integer> solution(int n, int m, int[] arr, int[] b) {
         ArrayList<Integer> answer = new ArrayList<>();
 
-        for (int i = 0; i < n; i++) {
-            int reverse = 0;
-            while (arr[i] != 0) {
-                int dig = arr[i] % 10;
-                reverse = reverse * 10 + dig;
-                arr[i] /= 10;
-            }
-
-            if (isPrime(reverse)) {
-                answer.add(reverse);
-            }
+        int p1 = 0, p2 = 0;
+        while (p1 < n && p2 < m) {
+            if (arr[p1] < b[p2]) answer.add(arr[p1++]);
+            else answer.add(b[p2++]);
         }
+        while (p1<n) answer.add(arr[p1++]);
+        while (p2<m) answer.add(b[p2++]);
 
         return answer;
     }
-
 }
+
